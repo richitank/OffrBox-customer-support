@@ -4,16 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { AuthService } from './auth/auth.service';
-import { StoreSignup } from './auth/storeSignup.service';
+import { customerFeedbackComponent } from './auth/customerFeedback/customerFeedback.component';
+import { StoreCustomerFeedback } from './auth/storeCustomerFeedback.service';
 import { HttpClientModule } from '@angular/common/http'
 
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 
 const appRoutes = [
-  {path: '', component: SignupComponent},
+  {path: '', component: customerFeedbackComponent},
   // { path: 'loggedin', component: HeaderComponent}
  
 ];
@@ -21,8 +19,7 @@ const appRoutes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    HeaderComponent
+    customerFeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +28,7 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [AuthService, StoreSignup],
+  providers: [StoreCustomerFeedback],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

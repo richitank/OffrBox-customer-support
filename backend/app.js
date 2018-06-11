@@ -22,11 +22,12 @@ app.use((req, res, next) => {
 
 app.post('/api/welcome', (req, res, next) => {
     const output = `<h3>
-    <p>Hi, <br> This is a mail for you from the owner. There is a request for you to get a background screening done.  <br>
-    <br> You'll be paying ${req.body.screeningCost} for the screening.<br>
-    <p>Please go to the following link to proceed: <a href="offrbox.com">Get Started</a></p>
-    <br>
-    <p>Have questions? Please contact <a href="http://localhost:4200"> Customer Support</a></p>`;
+    <p>Customer Feedback Details: </h3> 
+    <p>Customer Name: ${req.body.customerName} </p>  
+    <p>Customer Email: ${req.body.email}</p>
+    <p>Subject: ${req.body.subject} </p>
+    <p>Comment: ${req.body.comment} </p>
+    `;
 
     // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -45,8 +46,8 @@ app.post('/api/welcome', (req, res, next) => {
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"OffrBox" <amshu.k1956@gmail.com>', // sender address
-      to: req.body.email, // list of receivers
-      subject: 'OffrBox - Background Screening Required', // Subject line
+      to: 'amshuman.krishnamurthy@offrbox.com', // list of receivers
+      subject: 'OffrBox - New Customer Feedback', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
   };
