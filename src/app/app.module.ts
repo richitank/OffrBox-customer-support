@@ -1,18 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthService } from './auth/auth.service';
+import { StoreSignup } from './auth/storeSignup.service';
+import { HttpClientModule } from '@angular/common/http'
+
+import { Routes, RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+
+const appRoutes = [
+  {path: '', component: SignupComponent},
+  // { path: 'loggedin', component: HeaderComponent}
+ 
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, StoreSignup],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

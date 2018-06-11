@@ -1,16 +1,19 @@
-import { Component, NgModule  } from '@angular/core';
-import { NgForm } from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  
-  onSend(form: NgForm) {
-    alert("Feedback Received. You'll be contacted in 24 hours.");
+export class AppComponent implements OnInit{
 
-    console.log(form.value);
+  ngOnInit() {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAzz7jwDlLYB7LXAUAbZCynMpa7a0nkGhE",
+      authDomain: "offrbox-tenant-screening.firebaseapp.com",
+    })
+
   }
 }
