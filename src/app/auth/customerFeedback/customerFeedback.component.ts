@@ -24,14 +24,15 @@ export class customerFeedbackComponent implements OnInit {
     const email = form.value.email;
     const subject = form.value.subject;
     const comment = form.value.comment;
+    const pic = form.value.pic;
 
     this.info.push({
       customerName: customerName ,
       email: email,
       subject: subject,
-      comment: comment
+      comment: comment,
+      pic: pic
     });
-    
     
     
     this.storeCustomerFeedback.storeInfo(this.info)
@@ -41,7 +42,7 @@ export class customerFeedbackComponent implements OnInit {
       );
 
 
-     const infoSentToServer = {customerName: customerName, email: email, subject: subject, comment: comment}
+     const infoSentToServer = {customerName: customerName, email: email, subject: subject, comment: comment, pic: pic}
      this.http.post<{message: string}>('http://localhost:3000/api/welcome', infoSentToServer)
      .subscribe((responseData) => {
          console.log(responseData.message);         

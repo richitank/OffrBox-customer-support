@@ -27,6 +27,7 @@ app.post('/api/welcome', (req, res, next) => {
     <p>Customer Email: ${req.body.email}</p>
     <p>Subject: ${req.body.subject} </p>
     <p>Comment: ${req.body.comment} </p>
+    <p>Image Uploaded: ${req.body.pic} </p>
     `;
 
     // create reusable transporter object using the default SMTP transport
