@@ -43,7 +43,7 @@ export class customerFeedbackComponent implements OnInit {
 
 
      const infoSentToServer = {customerName: customerName, email: email, subject: subject, comment: comment, pic: pic}
-     this.http.post<{message: string}>('http://localhost:3000/api/welcome', infoSentToServer)
+     this.http.post<{message: string}>('http://localhost:3000/api/customerSupport/feedback', infoSentToServer)
      .subscribe((responseData) => {
          console.log(responseData.message);         
      })

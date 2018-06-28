@@ -11,9 +11,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes = [
-  {path: '', component: customerFeedbackComponent},
-  // { path: 'loggedin', component: HeaderComponent}
- 
+  {path: '', component: customerFeedbackComponent}, 
 ];
 
 @NgModule({
